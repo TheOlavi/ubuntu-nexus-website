@@ -1897,9 +1897,7 @@
   // ─── BACK TO TOP ───
   const backToTopBtn = document.getElementById('backToTop');
   function toggleBackToTop() {
-    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    const threshold = scrollable * 0.8;
-    if (window.scrollY > threshold) {
+    if (window.scrollY > 80) {
       backToTopBtn.classList.add('visible');
     } else {
       backToTopBtn.classList.remove('visible');
