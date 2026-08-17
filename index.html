@@ -132,13 +132,13 @@
     width: 600px; height: 600px; opacity: 0.06;
     pointer-events: none; z-index: 0;
   }
-  .hero-content { position: relative; z-index: 1; max-width: 750px; padding: 80px 5vw 60px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+  .hero-content { position: relative; z-index: 1; max-width: 900px; padding: 80px 5vw 60px; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; margin: 0 auto; }
   .hero-eyebrow {
     font-size: 11px; font-weight: 400;
     letter-spacing: 0.3em; text-transform: uppercase;
     color: var(--blue-light);
     margin-bottom: 2rem;
-    display: flex; align-items: center; gap: 12px;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
   }
   .hero-eyebrow::before {
     content: ''; display: block;
@@ -159,10 +159,10 @@
   .hero-sub {
     font-size: clamp(1rem, 1.5vw, 1.2rem);
     font-weight: 300; color: rgba(255,255,255,0.65);
-    max-width: 540px; margin-bottom: 3rem;
+    max-width: 620px; margin: 0 auto 3rem;
     line-height: 1.8;
   }
-  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
   .btn-primary {
     background: var(--blue-mid); color: var(--white);
     padding: 14px 32px; border-radius: 2px;
@@ -247,6 +247,9 @@
     color: var(--gray-700); line-height: 1.8;
     max-width: 640px; margin-bottom: 3.5rem;
   }
+  .section-header-centered { text-align: center; max-width: 780px; margin: 0 auto 1rem; }
+  .section-header-centered .section-eyebrow { justify-content: center; }
+  .section-header-centered .section-lead { margin-left: auto; margin-right: auto; }
 
   /* ─── ABOUT ─── */
   #about { background: var(--gray-100); }
@@ -340,20 +343,30 @@
     letter-spacing: 0.05em;
   }
   .advantages-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px; margin-bottom: 60px;
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 16px; margin-bottom: 60px;
   }
   .advantage {
-    padding: 28px;
+    padding: 22px 18px;
     border: 1px solid var(--gray-300);
     border-radius: 2px;
     border-left: 3px solid var(--blue-primary);
   }
   .advantage h4 {
-    font-size: 14px; font-weight: 500;
+    font-size: 13px; font-weight: 500;
     color: var(--blue-deep); margin-bottom: 8px;
+    line-height: 1.3;
   }
-  .advantage p { font-size: 13px; color: var(--gray-700); line-height: 1.6; }
+  .advantage p { font-size: 12px; color: var(--gray-700); line-height: 1.55; }
+  @media (max-width: 1100px) {
+    .advantages-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 700px) {
+    .advantages-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .advantages-grid { grid-template-columns: 1fr; }
+  }
   .quotation-banner {
     background: var(--blue-deep);
     padding: 60px;
@@ -366,7 +379,7 @@
     font-size: clamp(1.6rem, 3vw, 2.4rem);
     font-weight: 300; font-style: italic;
     color: var(--white); line-height: 1.3;
-    max-width: 500px;
+    max-width: 720px;
   }
   .quotation-banner .btn-primary { white-space: nowrap; }
 
@@ -962,12 +975,15 @@
 <!-- TRADING -->
 <section id="trading">
   <div class="trading-inner">
+    <div class="section-header-centered">
     <p class="section-eyebrow" data-lang="en">Division 01</p>
     <p class="section-eyebrow" data-lang="fr">Pôle 01</p>
     <h2 class="section-title" data-lang="en">Ubuntu Nexus <em>Trading</em></h2>
     <h2 class="section-title" data-lang="fr">Ubuntu Nexus <em>Trading</em></h2>
     <p class="section-lead" data-lang="en">Specialist intermediary between West African production zones — primarily Bénin — and consumer markets in Western Europe (Benelux, Switzerland) and the Gulf states. 5 botanical ingredients, superfoods, cold-pressed oils and African rarities sourced with full traceability.</p>
     <p class="section-lead" data-lang="fr">Intermédiaire spécialisé entre les zones de production d'Afrique de l'Ouest — principalement le Bénin — et les marchés européens (Benelux, Suisse) et les pays du Golfe. 5 ingrédients botaniques, superfoods, huiles et raretés africaines, traçabilité complète.</p>
+    </div>
+
 
     <div class="products-grid">
       <div class="product-card">
@@ -1047,12 +1063,14 @@
 
     <!-- MARKETS embedded inside Trading section -->
     <div id="markets" style="margin: 60px 0;">
+      <div class="section-header-centered">
       <p class="section-eyebrow" data-lang="en">Geography</p>
       <p class="section-eyebrow" data-lang="fr">Géographie</p>
       <h2 class="section-title" data-lang="en">Our <em>Markets</em></h2>
       <h2 class="section-title" data-lang="fr">Nos <em>Marchés</em></h2>
       <p class="section-lead" data-lang="en">Strategic positioning at the crossroads of West African production and European distribution networks.</p>
       <p class="section-lead" data-lang="fr">Un positionnement stratégique au croisement des zones de production d'Afrique de l'Ouest et des réseaux de distribution européens.</p>
+      </div>
 
       <div class="markets-grid">
         <div class="market-card">
@@ -1117,12 +1135,14 @@
 <!-- ADVISORY -->
 <section id="advisory">
   <div class="advisory-inner">
+    <div class="section-header-centered">
     <p class="section-eyebrow" data-lang="en">Division 02</p>
     <p class="section-eyebrow" data-lang="fr">Pôle 02</p>
     <h2 class="section-title" data-lang="en">Ubuntu Nexus <em>Advisory</em></h2>
     <h2 class="section-title" data-lang="fr">Ubuntu Nexus <em>Advisory</em></h2>
     <p class="section-lead" data-lang="en">Independent, operational expertise for organisations seeking to improve their performance. Our deliberately cross-sector positioning allows us to transpose best practices from one industry to another — creating differentiating efficiency gains.</p>
     <p class="section-lead" data-lang="fr">Expertise indépendante et opérationnelle pour les organisations souhaitant améliorer leur performance. Notre positionnement délibérément multisectoriel transporte les meilleures pratiques d'un secteur à l'autre — pour créer des gains d'efficience différenciants.</p>
+    </div>
 
     <div class="services-grid">
       <div class="service-card">
@@ -1213,8 +1233,8 @@
     <p class="section-eyebrow" data-lang="fr">Pôle 03</p>
     <h2 class="section-title" data-lang="en">Ubuntu Nexus <em>Foods</em></h2>
     <h2 class="section-title" data-lang="fr">Ubuntu Nexus <em>Foods</em></h2>
-    <p class="section-lead" data-lang="en">Downstream arm of the group, transforming raw materials sourced by Ubuntu Nexus Trading into finished, value-added food products under our own brands. Offering distributors a single point of contact from field to shelf.</p>
-    <p class="section-lead" data-lang="fr">Pôle aval du groupe, transformant les matières premières sourcées par Ubuntu Nexus Trading en produits finis à valeur ajoutée sous nos propres marques. Un interlocuteur unique du champ à l'étalage pour nos distributeurs.</p>
+    <p class="section-lead" data-lang="en" style="max-width:1000px;">Downstream arm of the group, transforming raw materials sourced by Ubuntu Nexus Trading into finished, value-added food products under our own brands. Offering distributors a single point of contact from field to shelf.</p>
+    <p class="section-lead" data-lang="fr" style="max-width:1000px;">Pôle aval du groupe, transformant les matières premières sourcées par Ubuntu Nexus Trading en produits finis à valeur ajoutée sous nos propres marques. Un interlocuteur unique du champ à l'étalage pour nos distributeurs.</p>
     <div style="padding:60px;background:var(--gray-100);border-radius:2px;border:1px solid var(--gray-300);text-align:center;">
       <p style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;font-style:italic;color:var(--blue-deep);" data-lang="en">Coming soon — this division is currently in development.</p>
       <p style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;font-style:italic;color:var(--blue-deep);" data-lang="fr">Bientôt disponible — ce pôle est actuellement en développement.</p>
@@ -1232,8 +1252,8 @@
     <p class="section-eyebrow" data-lang="fr">Pôle 04</p>
     <h2 class="section-title" data-lang="en">Ubuntu Nexus <em>Arts</em></h2>
     <h2 class="section-title" data-lang="fr">Ubuntu Nexus <em>Arts</em></h2>
-    <p class="section-lead" data-lang="en">Promoting and developing contemporary African art in the structured markets of Western Europe and Switzerland — representing artists, curating corporate collections, and bridging African creativity with European institutions.</p>
-    <p class="section-lead" data-lang="fr">Promouvoir et valoriser l'art contemporain africain sur les marchés structurés d'Europe occidentale et de Suisse — représentation d'artistes, constitution de collections d'entreprise et passerelle entre la création africaine et les institutions européennes.</p>
+    <p class="section-lead" data-lang="en" style="max-width:1000px;">Promoting and developing contemporary African art in the structured markets of Western Europe and Switzerland — representing artists, curating corporate collections, and bridging African creativity with European institutions.</p>
+    <p class="section-lead" data-lang="fr" style="max-width:1000px;">Promouvoir et valoriser l'art contemporain africain sur les marchés structurés d'Europe occidentale et de Suisse — représentation d'artistes, constitution de collections d'entreprise et passerelle entre la création africaine et les institutions européennes.</p>
 
     <div class="arts-grid">
       <div class="art-card">
@@ -1319,8 +1339,8 @@
     <p class="section-eyebrow" data-lang="fr">Pôle 05</p>
     <h2 class="section-title" data-lang="en">Ubuntu Nexus <em>Events</em></h2>
     <h2 class="section-title" data-lang="fr">Ubuntu Nexus <em>Events</em></h2>
-    <p class="section-lead" data-lang="en">Bespoke private experiences and celebrations — exceptional dinners, birthdays, high-end housewarmings — in the Luxembourg market and, over time, the Benelux. Built on a founding dual expertise in artistic direction and operational event management.</p>
-    <p class="section-lead" data-lang="fr">Expériences privées et célébrations sur-mesure — dîners d'exception, anniversaires, crémaillères haut de gamme — sur le marché luxembourgeois et, à terme, le Benelux. Une double expertise fondatrice en direction artistique et organisation événementielle.</p>
+    <p class="section-lead" data-lang="en" style="max-width:1050px;">Bespoke private experiences and celebrations — exceptional dinners, birthdays, high-end housewarmings — in the Luxembourg market and, over time, the Benelux. Built on a founding dual expertise in artistic direction and operational event management.</p>
+    <p class="section-lead" data-lang="fr" style="max-width:1050px;">Expériences privées et célébrations sur-mesure — dîners d'exception, anniversaires, crémaillères haut de gamme — sur le marché luxembourgeois et, à terme, le Benelux. Une double expertise fondatrice en direction artistique et organisation événementielle.</p>
 
     <div class="services-grid">
       <div class="service-card">
