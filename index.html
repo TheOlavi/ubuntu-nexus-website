@@ -132,7 +132,7 @@
     width: 600px; height: 600px; opacity: 0.06;
     pointer-events: none; z-index: 0;
   }
-  .hero-content { position: relative; z-index: 1; max-width: 900px; padding: 80px 5vw 60px; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; margin: 0 auto; }
+  .hero-content { position: relative; z-index: 1; max-width: 1200px; padding: 80px 5vw 60px; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; margin: 0 auto; }
   .hero-eyebrow {
     font-size: 11px; font-weight: 400;
     letter-spacing: 0.3em; text-transform: uppercase;
@@ -159,15 +159,18 @@
   .hero-title-line1 {
     display: block;
     font-family: 'DM Sans', sans-serif;
-    font-size: clamp(1.1rem, 2.1vw, 1.6rem);
-    font-weight: 400; letter-spacing: 0.03em;
+    font-size: clamp(1.9rem, 3.1vw, 2.7rem);
+    font-weight: 500; letter-spacing: 0.02em;
     color: var(--blue-light);
-    margin-bottom: 1.1rem;
+    margin-bottom: 1.2rem;
     white-space: nowrap;
   }
-  .hero-title-line2 { display: block; }
-  @media (max-width: 700px) {
-    .hero-title-line1 { white-space: normal; font-size: 1rem; }
+  .hero-title-line2 {
+    display: block;
+    font-size: clamp(1.4rem, 2.3vw, 2.1rem);
+  }
+  @media (max-width: 1100px) {
+    .hero-title-line1 { white-space: normal; font-size: clamp(1.4rem, 3.4vw, 1.9rem); }
   }
   .hero-sub {
     font-size: clamp(1rem, 1.5vw, 1.2rem);
@@ -602,6 +605,23 @@
   }
   .legal-modal ul { padding-left: 1.2rem; margin-top: 0.4rem; }
   .legal-modal a { color: var(--blue-primary); }
+
+  /* ─── BACK TO TOP ─── */
+  #backToTop {
+    position: fixed; bottom: 28px; right: 28px; z-index: 90;
+    width: 48px; height: 48px; border-radius: 50%;
+    background: var(--blue-primary); color: var(--white);
+    border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(4,44,83,0.25);
+    opacity: 0; visibility: hidden; transform: translateY(12px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s, background 0.2s;
+  }
+  #backToTop.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+  #backToTop:hover { background: var(--blue-deep); }
+  @media (max-width: 600px) {
+    #backToTop { bottom: 20px; right: 20px; width: 44px; height: 44px; }
+  }
 
   /* ─── FOOTER ─── */
   footer {
@@ -1599,6 +1619,13 @@
   </div>
 </footer>
 
+<button id="backToTop" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="12" y1="19" x2="12" y2="5"></line>
+    <polyline points="5 12 12 5 19 12"></polyline>
+  </svg>
+</button>
+
 <!-- LEGAL MODAL -->
 <div class="legal-modal-overlay" id="legalOverlay" onclick="if(event.target===this) closeLegal();">
   <div class="legal-modal">
@@ -1866,6 +1893,24 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeLegal();
   });
+
+  // ─── BACK TO TOP ───
+  const backToTopBtn = document.getElementById('backToTop');
+  function toggleBackToTop() {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const threshold = scrollable * 0.8;
+    if (window.scrollY > threshold) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
+  }
+  window.addEventListener('scroll', toggleBackToTop, { passive: true });
+  window.addEventListener('resize', toggleBackToTop);
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  toggleBackToTop();
 
   window.addEventListener('DOMContentLoaded', () => setLang('en'));
 </script>
