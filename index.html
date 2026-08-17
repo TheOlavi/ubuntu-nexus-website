@@ -188,30 +188,36 @@
     flex-shrink: 0;
   }
   .pillar {
-    flex: 1; padding: 28px 5vw;
+    flex: 1; min-width: 0; padding: 24px 1.2vw;
     border-right: 1px solid rgba(255,255,255,0.06);
-    display: flex; align-items: center; gap: 16px;
+    display: flex; align-items: center; gap: 12px;
     text-decoration: none; transition: background 0.2s;
   }
   .pillar:last-child { border-right: none; }
   .pillar:hover { background: rgba(255,255,255,0.03); }
   .pillar-label {
-    font-size: 11px; font-weight: 500;
-    letter-spacing: 0.2em; text-transform: uppercase;
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
     color: rgba(255,255,255,0.4);
     margin-bottom: 2px;
+    white-space: nowrap;
   }
   .pillar-name {
-    font-size: 15px; font-weight: 400;
+    font-size: 13px; font-weight: 400;
     color: var(--white);
+    line-height: 1.35;
   }
   .pillar-icon {
-    width: 36px; height: 36px; border-radius: 50%;
+    width: 32px; height: 32px; border-radius: 50%;
     background: rgba(55,138,221,0.2);
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
   }
-  .pillar-icon svg { width: 18px; height: 18px; stroke: var(--blue-light); fill: none; stroke-width: 1.5; }
+  .pillar-icon svg { width: 16px; height: 16px; stroke: var(--blue-light); fill: none; stroke-width: 1.5; }
+  @media (max-width: 1100px) {
+    .hero-pillars { flex-wrap: wrap; }
+    .pillar { flex: 1 1 33.333%; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 20px 4vw; }
+  }
 
   /* ─── SECTIONS GENERIC ─── */
   section { padding: 100px 5vw; }
@@ -248,6 +254,7 @@
     display: grid; grid-template-columns: 1fr 1fr;
     gap: 80px; align-items: start;
     max-width: 1200px;
+    margin: 0 auto;
   }
   .quote-block {
     font-family: 'Cormorant Garamond', serif;
@@ -295,7 +302,7 @@
 
   /* ─── TRADING ─── */
   #trading { background: var(--white); }
-  .trading-inner { max-width: 1200px; }
+  .trading-inner { max-width: 1200px; margin: 0 auto; }
   .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -365,7 +372,7 @@
 
   /* ─── ADVISORY ─── */
   #advisory { background: var(--gray-100); }
-  .advisory-inner { max-width: 1200px; }
+  .advisory-inner { max-width: 1200px; margin: 0 auto; }
   .services-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px; margin-bottom: 50px;
@@ -447,7 +454,7 @@
 
   /* ─── MARKETS ─── */
   #markets { background: var(--white); }
-  .markets-inner { max-width: 1200px; }
+  .markets-inner { max-width: 1200px; margin: 0 auto; }
   .markets-grid {
     display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 1px; background: var(--gray-300);
@@ -472,7 +479,7 @@
 
   /* ─── QUOTATION FORM ─── */
   #quotation { background: var(--blue-deep); }
-  .quotation-inner { max-width: 800px; }
+  .quotation-inner { max-width: 800px; margin: 0 auto; }
   #quotation .section-eyebrow { color: var(--blue-light); }
   #quotation .section-eyebrow::before { background: var(--blue-mid); }
   #quotation h2.section-title { color: var(--white); }
@@ -517,6 +524,58 @@
     font-size: 12px; color: rgba(255,255,255,0.35);
     margin-top: 16px;
   }
+  .form-consent {
+    display: flex; align-items: flex-start; gap: 10px;
+    margin-top: 24px;
+  }
+  .form-consent input[type="checkbox"] {
+    width: 16px; height: 16px; margin-top: 2px;
+    flex-shrink: 0; accent-color: var(--blue-mid);
+    padding: 0;
+  }
+  .form-consent label {
+    font-size: 13px; font-weight: 300; line-height: 1.5;
+    letter-spacing: normal; text-transform: none;
+    color: rgba(255,255,255,0.65);
+  }
+  .form-consent a { color: var(--blue-light); text-decoration: underline; }
+  .form-error {
+    font-size: 13px; color: #ff9a9a;
+    margin-top: 12px; display: none;
+  }
+
+  /* ─── LEGAL MODAL ─── */
+  .legal-modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 1000;
+    background: rgba(4,44,83,0.75); backdrop-filter: blur(4px);
+    padding: 5vh 5vw; overflow-y: auto;
+  }
+  .legal-modal-overlay.open { display: block; }
+  .legal-modal {
+    background: var(--white); max-width: 780px; margin: 0 auto;
+    border-radius: 4px; padding: 48px; position: relative;
+  }
+  .legal-modal-close {
+    position: absolute; top: 20px; right: 20px;
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1px solid var(--gray-300); background: none;
+    cursor: pointer; font-size: 18px; color: var(--gray-700);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .legal-modal-close:hover { background: var(--gray-100); }
+  .legal-modal h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.8rem;
+    color: var(--blue-deep); margin-bottom: 1.5rem; font-weight: 500;
+  }
+  .legal-modal h4 {
+    font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--blue-primary); margin: 1.8rem 0 0.6rem;
+  }
+  .legal-modal p, .legal-modal li {
+    font-size: 14px; color: var(--gray-700); line-height: 1.75;
+  }
+  .legal-modal ul { padding-left: 1.2rem; margin-top: 0.4rem; }
+  .legal-modal a { color: var(--blue-primary); }
 
   /* ─── FOOTER ─── */
   footer {
@@ -1412,12 +1471,21 @@
           <textarea name="message" placeholder="Tell us about your needs, your company, your market…&#10;Dites-nous en plus sur vos besoins, votre société, votre marché…"></textarea>
         </div>
       </div>
+      <div class="form-consent">
+        <input type="checkbox" id="consentCheck" name="consent" required>
+        <label for="consentCheck" data-lang="en">I agree that my data will be used by Ubuntu Nexus Group to process this request, in accordance with the <a href="#" onclick="openLegal('privacy');return false;">Privacy Policy</a>. *</label>
+        <label for="consentCheck" data-lang="fr" style="display:none;">J'accepte que mes données soient utilisées par Ubuntu Nexus Group pour traiter cette demande, conformément à la <a href="#" onclick="openLegal('privacy');return false;">Politique de confidentialité</a>. *</label>
+      </div>
       <button type="submit" class="form-submit">
         <span data-lang="en">Send my request →</span>
         <span data-lang="fr">Envoyer ma demande →</span>
       </button>
-      <p class="form-note" data-lang="en">All information collected is treated confidentially and used solely within the framework of our commercial relationship. In accordance with GDPR, you have the right of access, rectification, and deletion of your data.</p>
-      <p class="form-note" data-lang="fr">Toutes les informations collectées sont traitées confidentiellement et utilisées uniquement dans le cadre de notre relation commerciale. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données.</p>
+      <div class="form-error" id="formErrorBox">
+        <p data-lang="en">Something went wrong sending your request. Please try again or email us directly at <a href="mailto:contact@ubuntunexusgroup.lu" style="color:#ff9a9a;">contact@ubuntunexusgroup.lu</a>.</p>
+        <p data-lang="fr" style="display:none;">Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous écrire directement à <a href="mailto:contact@ubuntunexusgroup.lu" style="color:#ff9a9a;">contact@ubuntunexusgroup.lu</a>.</p>
+      </div>
+      <p class="form-note" data-lang="en">All information collected is treated confidentially and used solely within the framework of our commercial relationship. In accordance with GDPR, you have the right of access, rectification, and deletion of your data. See our <a href="#" onclick="openLegal('privacy');return false;" style="color:rgba(255,255,255,0.55);">Privacy Policy</a> and <a href="#" onclick="openLegal('notice');return false;" style="color:rgba(255,255,255,0.55);">Legal Notice</a>.</p>
+      <p class="form-note" data-lang="fr">Toutes les informations collectées sont traitées confidentiellement et utilisées uniquement dans le cadre de notre relation commerciale. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Voir notre <a href="#" onclick="openLegal('privacy');return false;" style="color:rgba(255,255,255,0.55);">Politique de confidentialité</a> et nos <a href="#" onclick="openLegal('notice');return false;" style="color:rgba(255,255,255,0.55);">Mentions légales</a>.</p>
     </form>
 
     <div id="formSuccess" style="display:none;margin-top:40px;padding:32px;background:rgba(55,138,221,0.15);border:1px solid rgba(55,138,221,0.3);border-radius:2px;">
@@ -1482,8 +1550,88 @@
     <p>© 2026 Ubuntu Nexus Group SARL-S — Grand-Duché de Luxembourg</p>
     <p data-lang="en">Trading · Advisory · Foods · Arts · Events</p>
     <p data-lang="fr">Trading · Advisory · Foods · Arts · Events</p>
+    <p style="margin-top:6px;">
+      <a href="#" onclick="openLegal('notice');return false;" style="color:rgba(255,255,255,0.4);text-decoration:underline;" data-lang="en">Legal Notice</a>
+      <a href="#" onclick="openLegal('notice');return false;" style="color:rgba(255,255,255,0.4);text-decoration:underline;" data-lang="fr">Mentions légales</a>
+      <span style="color:rgba(255,255,255,0.25);"> · </span>
+      <a href="#" onclick="openLegal('privacy');return false;" style="color:rgba(255,255,255,0.4);text-decoration:underline;" data-lang="en">Privacy Policy</a>
+      <a href="#" onclick="openLegal('privacy');return false;" style="color:rgba(255,255,255,0.4);text-decoration:underline;" data-lang="fr">Politique de confidentialité</a>
+    </p>
   </div>
 </footer>
+
+<!-- LEGAL MODAL -->
+<div class="legal-modal-overlay" id="legalOverlay" onclick="if(event.target===this) closeLegal();">
+  <div class="legal-modal">
+    <button class="legal-modal-close" onclick="closeLegal()" aria-label="Close">✕</button>
+
+    <div id="legalNotice">
+      <div data-lang="en">
+        <h3>Legal Notice</h3>
+        <h4>Publisher</h4>
+        <p>Ubuntu Nexus Group SARL-S<br>
+        Registered office: 11 rue Eugène Ruppert, L-2453 Luxembourg, Grand Duchy of Luxembourg<br>
+        RCS Luxembourg: B310720<br>
+        Share capital: €1,000<br>
+        Publication director: GODONOU ATATA José<br>
+        Contact: <a href="mailto:contact@ubuntunexusgroup.lu">contact@ubuntunexusgroup.lu</a></p>
+        <h4>Hosting</h4>
+        <p>This website is hosted by GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA — <a href="https://pages.github.com" target="_blank" rel="noopener">pages.github.com</a>.</p>
+        <h4>Intellectual property</h4>
+        <p>All content on this site (texts, images, logos) is the property of Ubuntu Nexus Group SARL-S unless otherwise stated, and may not be reproduced without prior written consent.</p>
+      </div>
+      <div data-lang="fr" style="display:none;">
+        <h3>Mentions légales</h3>
+        <h4>Éditeur</h4>
+        <p>Ubuntu Nexus Group SARL-S<br>
+        Siège social : 11 rue Eugène Ruppert, L-2453 Luxembourg, Grand-Duché de Luxembourg<br>
+        RCS Luxembourg : B310720<br>
+        Capital social : 1 000 €<br>
+        Directeur de la publication : GODONOU ATATA José<br>
+        Contact : <a href="mailto:contact@ubuntunexusgroup.lu">contact@ubuntunexusgroup.lu</a></p>
+        <h4>Hébergement</h4>
+        <p>Ce site est hébergé par GitHub, Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA — <a href="https://pages.github.com" target="_blank" rel="noopener">pages.github.com</a>.</p>
+        <h4>Propriété intellectuelle</h4>
+        <p>L'ensemble des contenus de ce site (textes, images, logos) est la propriété d'Ubuntu Nexus Group SARL-S sauf mention contraire, et ne peut être reproduit sans accord écrit préalable.</p>
+      </div>
+    </div>
+
+    <div id="legalPrivacy" style="display:none;">
+      <div data-lang="en">
+        <h3>Privacy Policy</h3>
+        <p>This policy explains how Ubuntu Nexus Group SARL-S ("we") processes personal data submitted through this website, in accordance with the EU General Data Protection Regulation (GDPR).</p>
+        <h4>Data we collect</h4>
+        <p>Via the quotation form: first name, last name, company, country, email address, phone number, area of enquiry, product interest, and any message content you provide.</p>
+        <h4>Purpose & legal basis</h4>
+        <p>Data is processed to respond to your enquiry and, where relevant, to take pre-contractual steps at your request (Art. 6.1.b GDPR), or based on our legitimate interest in managing commercial relationships (Art. 6.1.f GDPR).</p>
+        <h4>Retention</h4>
+        <p>Data is kept for the duration of our commercial relationship, and up to 3 years from the last contact if no relationship is established, unless a longer legal retention period applies.</p>
+        <h4>Recipients</h4>
+        <p>Data is accessed only by authorised Ubuntu Nexus Group staff. It is not sold or transferred to third parties for marketing purposes.</p>
+        <h4>Your rights</h4>
+        <p>You have the right to access, rectify, erase, restrict, or object to the processing of your data, and to data portability. To exercise these rights, contact us at <a href="mailto:contact@ubuntunexusgroup.lu">contact@ubuntunexusgroup.lu</a>. You may also lodge a complaint with the Luxembourg National Commission for Data Protection (CNPD).</p>
+        <h4>Cookies</h4>
+        <p>This website does not currently use tracking or analytics cookies.</p>
+      </div>
+      <div data-lang="fr" style="display:none;">
+        <h3>Politique de confidentialité</h3>
+        <p>Cette politique explique comment Ubuntu Nexus Group SARL-S (« nous ») traite les données personnelles soumises via ce site, conformément au Règlement Général sur la Protection des Données (RGPD).</p>
+        <h4>Données collectées</h4>
+        <p>Via le formulaire de devis : prénom, nom, société, pays, adresse email, téléphone, objet de la demande, produits d'intérêt, et le contenu de votre message.</p>
+        <h4>Finalité & base légale</h4>
+        <p>Les données sont traitées pour répondre à votre demande et, le cas échéant, pour la mise en œuvre de mesures précontractuelles à votre demande (art. 6.1.b RGPD), ou sur la base de notre intérêt légitime à gérer nos relations commerciales (art. 6.1.f RGPD).</p>
+        <h4>Durée de conservation</h4>
+        <p>Les données sont conservées pendant la durée de notre relation commerciale, et jusqu'à 3 ans à compter du dernier contact en l'absence de relation établie, sauf durée légale de conservation plus longue.</p>
+        <h4>Destinataires</h4>
+        <p>Les données sont accessibles uniquement par le personnel autorisé d'Ubuntu Nexus Group. Elles ne sont ni vendues ni transmises à des tiers à des fins commerciales.</p>
+        <h4>Vos droits</h4>
+        <p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation et d'opposition au traitement de vos données, ainsi que d'un droit à la portabilité. Pour exercer ces droits, contactez-nous à <a href="mailto:contact@ubuntunexusgroup.lu">contact@ubuntunexusgroup.lu</a>. Vous pouvez également introduire une réclamation auprès de la Commission Nationale pour la Protection des Données (CNPD) au Luxembourg.</p>
+        <h4>Cookies</h4>
+        <p>Ce site n'utilise actuellement aucun cookie de suivi ou d'analyse.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
   // ─── SHADER ANIMATION ───
@@ -1613,11 +1761,72 @@
     flexEls.forEach(el => { if (!el.hasAttribute('data-lang')) el.style.display = ''; });
   }
 
-  function handleSubmit(e) {
+  // ─── CONTACT FORM SUBMISSION ───
+  // IMPORTANT: replace this with your own Formspree endpoint (or other form backend).
+  // 1. Create a free account at https://formspree.io
+  // 2. Create a new form, connect the email address that should receive enquiries
+  // 3. Copy the endpoint URL (looks like https://formspree.io/f/xxxxxxxx) and paste it below
+  const FORM_ENDPOINT = "https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID";
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    document.querySelector('form').style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+    const form = e.target;
+    const submitBtn = form.querySelector('.form-submit');
+    const errorBox = document.getElementById('formErrorBox');
+    errorBox.style.display = 'none';
+
+    if (FORM_ENDPOINT.includes('REPLACE_WITH_YOUR_FORM_ID')) {
+      // No backend configured yet — tell the site owner instead of pretending it worked.
+      errorBox.style.display = 'block';
+      errorBox.querySelectorAll('p').forEach(p => {
+        if (p.getAttribute('data-lang') === (document.body.classList.contains('fr') ? 'fr' : 'en')) {
+          p.textContent = document.body.classList.contains('fr')
+            ? "Le formulaire n'est pas encore connecté à une adresse email. Contactez-nous directement à contact@ubuntunexusgroup.lu en attendant."
+            : "The form isn't connected to an email address yet. Please contact us directly at contact@ubuntunexusgroup.lu in the meantime.";
+        }
+      });
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = '0.6';
+
+    try {
+      const formData = new FormData(form);
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        errorBox.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+      }
+    } catch (err) {
+      errorBox.style.display = 'block';
+      submitBtn.disabled = false;
+      submitBtn.style.opacity = '1';
+    }
   }
+
+  // ─── LEGAL MODAL ───
+  function openLegal(which) {
+    document.getElementById('legalNotice').style.display = which === 'notice' ? 'block' : 'none';
+    document.getElementById('legalPrivacy').style.display = which === 'privacy' ? 'block' : 'none';
+    document.getElementById('legalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLegal() {
+    document.getElementById('legalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLegal();
+  });
 
   window.addEventListener('DOMContentLoaded', () => setLang('en'));
 </script>
