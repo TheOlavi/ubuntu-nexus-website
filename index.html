@@ -5,63 +5,129 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ubuntu Nexus Group — Coming Soon</title>
     
-    <!-- Zone de style CSS intégrée (Pourquoi votre projet reste détecté à 100% HTML) -->
+    <!-- Design et styles graphiques regroupés dans le fichier unique -->
     <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .card {
+            background-color: #ffffff;
+            max-width: 650px;
+            width: 100%;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             text-align: center;
-            padding: 50px;
-            background-color: #f9f9f9;
-            color: #333;
         }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        .lang-switcher {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #6c757d;
+            margin-bottom: 30px;
         }
-        h1 {
-            color: #d32f2f; /* Exemple de couleur rouge */
-            font-size: 24px;
+        .brand-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 5px;
         }
-        .languages {
-            margin: 15px 0;
-            font-weight: bold;
+        .status-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background-color: #e9ecef;
+            padding: 4px 12px;
+            border-radius: 50px;
+            color: #495057;
+            margin-bottom: 35px;
+            font-weight: 600;
         }
-        .activities {
-            margin-top: 20px;
-            font-style: italic;
-            color: #666;
+        .main-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 15px;
         }
-        .contact {
-            margin-top: 25px;
-            display: block;
-            color: #0288d1;
+        /* La barre orange rappelant l'indicateur de votre capture GitHub */
+        .separator {
+            width: 80px;
+            height: 4px;
+            background-color: #f05133; 
+            margin: 25px auto;
+            border-radius: 2px;
+        }
+        .description {
+            font-size: 0.95rem;
+            color: #495057;
+            margin-bottom: 20px;
+        }
+        .tags {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #f05133;
+            letter-spacing: 0.5px;
+            margin: 30px 0;
+            text-transform: uppercase;
+        }
+        .contact-link {
+            display: inline-block;
+            color: #007bff;
             text-decoration: none;
+            font-weight: 500;
+            margin-top: 10px;
+            transition: color 0.2s;
+        }
+        .contact-link:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 0.75rem;
+            color: #adb5bd;
+            border-top: 1px solid #f1f3f5;
+            padding-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <p class="languages">EN | FR</p>
+    <div class="card">
+        <div class="lang-switcher">EN | FR</div>
         
-        <h2>Ubuntu Nexus Group</h2>
-        <p>Site Under Construction / Site en construction</p>
+        <div class="brand-name">Ubuntu Nexus Group</div>
+        <div class="status-badge">Site Under Construction / En construction</div>
         
-        <h1>Our new website is <em>coming soon.</em></h1>
-        <h1>Notre nouveau site <em>arrive bientôt.</em></h1>
+        <h1 class="main-title">Our new website is <em>coming soon.</em></h1>
+        <p class="description">Ubuntu Nexus Group is preparing a dedicated platform for its Trading, Advisory, Foods, Arts & Events activities. Thank you for your patience — we'll be back online shortly.</p>
         
-        <p>Ubuntu Nexus Group is preparing a dedicated platform for its Trading, Advisory, Foods, Arts & Events activities. Thank you for your patience — we'll be back online shortly.</p>
-        <p>Ubuntu Nexus Group prépare une plateforme dédiée à ses activités Trading, Advisory, Foods, Arts & Events. Merci de votre patience — nous serons de retour très prochainement.</p>
+        <div class="separator"></div>
         
-        <p class="activities">Trading | Advisory | Foods | Arts | Events</p>
+        <h1 class="main-title">Notre nouveau site <em>arrive bientôt.</em></h1>
+        <p class="description">Ubuntu Nexus Group prépare une plateforme dédiée à ses activités Trading, Advisory, Foods, Arts & Events. Merci de votre patience — nous serons de retour très prochainement.</p>
         
-        <a href="mailto:contact@ubuntunexusgroup.lu" class="contact">Nous contacter : contact@ubuntunexusgroup.lu</a>
+        <div class="tags">Trading • Advisory • Foods • Arts • Events</div>
         
-        <footer style="margin-top: 40px; font-size: 12px; color: #999;">
+        <p class="description">
+            <a href="mailto:contact@ubuntunexusgroup.lu" class="contact-link">Nous contacter : contact@ubuntunexusgroup.lu</a>
+        </p>
+        
+        <footer>
             © 2026 Ubuntu Nexus Group SARL-S — Grand-Duché de Luxembourg
         </footer>
     </div>
